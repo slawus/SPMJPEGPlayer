@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Movie" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="frames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MovieFrame" inverseName="movie" inverseEntity="MovieFrame" syncable="YES"/>
+    </entity>
+    <entity name="MovieFrame" syncable="YES">
+        <attribute name="date" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="movie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="frames" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Movie" positionX="-17424" positionY="-9582" width="128" height="90"/>
+        <element name="MovieFrame" positionX="-17136" positionY="-9432" width="128" height="90"/>
+    </elements>
+</model>
