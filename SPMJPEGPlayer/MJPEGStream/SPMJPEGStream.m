@@ -18,6 +18,11 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newFrame" object:nil];
     }
+    
+    if([self.delegate respondsToSelector:@selector(mjpegStream:didReceiveFrame:)])
+    {
+        [self.delegate mjpegStream:self didReceiveFrame:frame];
+    }
 }
 
 -(void)play

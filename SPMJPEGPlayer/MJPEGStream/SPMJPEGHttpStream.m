@@ -63,6 +63,16 @@ static NSData *_endMarkerData = nil;
 
 #pragma mark - Public Methods
 
+-(void)play
+{
+    [self connect];
+}
+
+-(void)stop
+{
+    [self disconnect];
+}
+
 -(void)connect {
     if (_connection)
     {
@@ -121,6 +131,11 @@ static NSData *_endMarkerData = nil;
             UIImage *receivedImage = [UIImage imageWithData:imageData];
             if (receivedImage)
             {
+                static double movieSize = 0;
+                movieSize += imageData.length;
+                
+                NSLog(@"Frame size in kb: %f, since begining: %f", imageData.length / 1024.0, movieSize / 1024.0);
+                
                 self.frame = receivedImage;
                 
                 if([self.delegate respondsToSelector:@selector(mjpegStream:didReceiveFrame:)])
