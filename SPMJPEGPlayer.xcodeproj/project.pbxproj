@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6421C717B0E81B007921B1 /* SPMJPEGMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */; };
+		2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */; };
+		2C6421CC17B0EC1B007921B1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */; };
+		2C6421CE17B0F019007921B1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CD17B0F019007921B1 /* CoreVideo.framework */; };
+		2C6421D017B0F18D007921B1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CF17B0F18D007921B1 /* CoreMedia.framework */; };
 		CE69EEAF17A5981900FAFD44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEAE17A5981900FAFD44 /* UIKit.framework */; };
 		CE69EEB117A5981900FAFD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEB017A5981900FAFD44 /* Foundation.framework */; };
 		CE69EEB317A5981900FAFD44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEB217A5981900FAFD44 /* CoreGraphics.framework */; };
@@ -28,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C6421C517B0E81B007921B1 /* SPMJPEGMovieRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGMovieRecorder.h; path = MJPEGStream/SPMJPEGMovieRecorder.h; sourceTree = "<group>"; };
+		2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGMovieRecorder.m; path = MJPEGStream/SPMJPEGMovieRecorder.m; sourceTree = "<group>"; };
+		2C6421C817B0E8BC007921B1 /* SPMJPEGFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGFrame.h; path = MJPEGStream/SPMJPEGFrame.h; sourceTree = "<group>"; };
+		2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGFrame.m; path = MJPEGStream/SPMJPEGFrame.m; sourceTree = "<group>"; };
+		2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2C6421CD17B0F019007921B1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2C6421CF17B0F18D007921B1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CE69EEAB17A5981900FAFD44 /* SPMJPEGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPMJPEGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69EEAE17A5981900FAFD44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE69EEB017A5981900FAFD44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,6 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C6421D017B0F18D007921B1 /* CoreMedia.framework in Frameworks */,
+				2C6421CE17B0F019007921B1 /* CoreVideo.framework in Frameworks */,
+				2C6421CC17B0EC1B007921B1 /* AVFoundation.framework in Frameworks */,
 				CE69EEAF17A5981900FAFD44 /* UIKit.framework in Frameworks */,
 				CE69EEB117A5981900FAFD44 /* Foundation.framework in Frameworks */,
 				CE69EEB317A5981900FAFD44 /* CoreGraphics.framework in Frameworks */,
@@ -93,6 +108,9 @@
 		CE69EEAD17A5981900FAFD44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C6421CD17B0F019007921B1 /* CoreVideo.framework */,
+				2C6421CF17B0F18D007921B1 /* CoreMedia.framework */,
+				2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */,
 				CE69EEAE17A5981900FAFD44 /* UIKit.framework */,
 				CE69EEB017A5981900FAFD44 /* Foundation.framework */,
 				CE69EEB217A5981900FAFD44 /* CoreGraphics.framework */,
@@ -120,6 +138,10 @@
 				CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */,
 				CE7F163417AC486A00DA8FEF /* SPMoviesRepository.h */,
 				CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */,
+				2C6421C517B0E81B007921B1 /* SPMJPEGMovieRecorder.h */,
+				2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */,
+				2C6421C817B0E8BC007921B1 /* SPMJPEGFrame.h */,
+				2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */,
 			);
 			path = SPMJPEGPlayer;
 			sourceTree = "<group>";
@@ -231,6 +253,8 @@
 				CE7F163317AC3ED400DA8FEF /* SPMJPEGMovie.m in Sources */,
 				CE7F163617AC486A00DA8FEF /* SPMoviesRepository.m in Sources */,
 				CE8E7B9F17ACF623000B6013 /* SPMJPEGStream.m in Sources */,
+				2C6421C717B0E81B007921B1 /* SPMJPEGMovieRecorder.m in Sources */,
+				2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
