@@ -11,7 +11,6 @@
 
 @interface SPMJPEGMovie : NSObject
 +(SPMJPEGMovie *)movieWithContainer:(NSManagedObject *)moviewContainer;
+@property (nonatomic, readonly) double duration;
 @property (nonatomic, strong, readonly) NSManagedObject *coreDataContainer;
-@property (nonatomic, strong) SPMJPEGStream *sourceStream;
-@property (nonatomic, strong, readonly) SPMJPEGStream *movieStream;
 @end

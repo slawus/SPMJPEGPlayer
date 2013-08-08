@@ -6,7 +6,7 @@
         <relationship name="frames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MovieFrame" inverseName="movie" inverseEntity="MovieFrame" syncable="YES"/>
     </entity>
     <entity name="MovieFrame" syncable="YES">
-        <attribute name="date" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="delay" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="movie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="frames" inverseEntity="Movie" syncable="YES"/>
     </entity>
