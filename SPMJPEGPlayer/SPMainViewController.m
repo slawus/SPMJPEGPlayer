@@ -48,7 +48,7 @@
 }
 - (IBAction)recordButtonPressed:(id)sender
 {
-    if(isRecording)
+    if(recorder)
     {
         [recorder finishRecording];
         recorder = nil;
@@ -56,7 +56,7 @@
     else
     {
         recorder = [[SPMJPEGMovieRecorder alloc] init];
-        recorder.filename = @"blbal22";
+        recorder.filename = @"movie.mp4";
         
         [recorder beginRecording];
     }

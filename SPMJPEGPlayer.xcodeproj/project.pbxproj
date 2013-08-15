@@ -29,6 +29,8 @@
 		CE69EEDC17A5A14F00FAFD44 /* SPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EEDB17A5A14F00FAFD44 /* SPMainViewController.m */; };
 		CE7F163317AC3ED400DA8FEF /* SPMJPEGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */; };
 		CE7F163617AC486A00DA8FEF /* SPMoviesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */; };
+		CE8C013117BCF6DB00C48AE8 /* SPMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8C013017BCF6DB00C48AE8 /* SPMoviePlayerViewController.m */; };
+		CE8C013317BCF76A00C48AE8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C013217BCF76A00C48AE8 /* MediaPlayer.framework */; };
 		CE8E7B9F17ACF623000B6013 /* SPMJPEGStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */; };
 		CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,9 @@
 		CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGMovie.m; path = MJPEGStream/SPMJPEGMovie.m; sourceTree = "<group>"; };
 		CE7F163417AC486A00DA8FEF /* SPMoviesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMoviesRepository.h; path = MJPEGStream/SPMoviesRepository.h; sourceTree = "<group>"; };
 		CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMoviesRepository.m; path = MJPEGStream/SPMoviesRepository.m; sourceTree = "<group>"; };
+		CE8C012F17BCF6DB00C48AE8 /* SPMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMoviePlayerViewController.h; path = SPMJPEGPlayer/SPMoviePlayerViewController.h; sourceTree = "<group>"; };
+		CE8C013017BCF6DB00C48AE8 /* SPMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMoviePlayerViewController.m; path = SPMJPEGPlayer/SPMoviePlayerViewController.m; sourceTree = "<group>"; };
+		CE8C013217BCF76A00C48AE8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE8E7B9D17ACF623000B6013 /* SPMJPEGStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGStream.h; path = MJPEGStream/SPMJPEGStream.h; sourceTree = "<group>"; };
 		CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGStream.m; path = MJPEGStream/SPMJPEGStream.m; sourceTree = "<group>"; };
 		CEEFC93517B3ACEE00AB4532 /* SPMoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMoviesListViewController.h; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8C013317BCF76A00C48AE8 /* MediaPlayer.framework in Frameworks */,
 				2C6421D017B0F18D007921B1 /* CoreMedia.framework in Frameworks */,
 				2C6421CE17B0F019007921B1 /* CoreVideo.framework in Frameworks */,
 				2C6421CC17B0EC1B007921B1 /* AVFoundation.framework in Frameworks */,
@@ -94,6 +100,8 @@
 		CE69EEA217A5981900FAFD44 = {
 			isa = PBXGroup;
 			children = (
+				CE8C012F17BCF6DB00C48AE8 /* SPMoviePlayerViewController.h */,
+				CE8C013017BCF6DB00C48AE8 /* SPMoviePlayerViewController.m */,
 				CE69EEB617A5981900FAFD44 /* SPMJPEGPlayer */,
 				CE69EEAD17A5981900FAFD44 /* Frameworks */,
 				CE69EEAC17A5981900FAFD44 /* Products */,
@@ -111,6 +119,7 @@
 		CE69EEAD17A5981900FAFD44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE8C013217BCF76A00C48AE8 /* MediaPlayer.framework */,
 				2C6421CD17B0F019007921B1 /* CoreVideo.framework */,
 				2C6421CF17B0F18D007921B1 /* CoreMedia.framework */,
 				2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */,
@@ -261,6 +270,7 @@
 				2C6421C717B0E81B007921B1 /* SPMJPEGMovieRecorder.m in Sources */,
 				2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */,
 				CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */,
+				CE8C013117BCF6DB00C48AE8 /* SPMoviePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

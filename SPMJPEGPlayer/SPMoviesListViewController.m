@@ -7,7 +7,8 @@
 //
 
 #import "SPMoviesListViewController.h"
-
+#import "SPMoviePlayerViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 @interface SPMoviesListViewController ()
 {
     NSArray *movies;
@@ -53,6 +54,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"toMoviePlayerPush"])
+    {
+        SPMoviePlayerViewController *vc = segue.destinationViewController;
+        
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        path = [path stringByAppendingPathComponent:sender];
+        //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        vc.movieUrl = [NSURL fileURLWithPath:path];
+    }
 }
 
 #pragma mark - Table view data source
@@ -124,13 +139,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //[self performSegueWithIdentifier:@"toMoviePlayerPush" sender:[movies objectAtIndex:indexPath.row]];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    path = [path stringByAppendingPathComponent:[movies objectAtIndex:indexPath.row]];
+    //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *movieURL = [NSURL fileURLWithPath:path];
+    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
+    [movieController.moviePlayer play];
 }
 
 @end

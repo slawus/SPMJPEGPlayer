@@ -39,7 +39,7 @@ static CGSize size = {640, 480};
     
         NSLog(@"Write Started");
         NSError *error = nil;
-        
+    
         videoWriter = [[AVAssetWriter alloc] initWithURL:
                                       [NSURL fileURLWithPath:path] fileType:AVFileTypeMPEG4
                                                                   error:&error];
@@ -130,7 +130,9 @@ static CGSize size = {640, 480};
 -(void)finishRecording
 {
     [videoWriterInput markAsFinished];
-    [videoWriter finishWritingWithCompletionHandler:nil];
+    [videoWriter finishWritingWithCompletionHandler:^{
+        
+    }];
     
     NSLog(@"Write Ended");
 }
