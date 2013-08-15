@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6421C717B0E81B007921B1 /* SPMJPEGMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */; };
+		2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */; };
+		2C6421CC17B0EC1B007921B1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */; };
+		2C6421CE17B0F019007921B1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CD17B0F019007921B1 /* CoreVideo.framework */; };
+		2C6421D017B0F18D007921B1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6421CF17B0F18D007921B1 /* CoreMedia.framework */; };
 		CE69EEAF17A5981900FAFD44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEAE17A5981900FAFD44 /* UIKit.framework */; };
 		CE69EEB117A5981900FAFD44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEB017A5981900FAFD44 /* Foundation.framework */; };
 		CE69EEB317A5981900FAFD44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE69EEB217A5981900FAFD44 /* CoreGraphics.framework */; };
@@ -24,11 +29,18 @@
 		CE69EEDC17A5A14F00FAFD44 /* SPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69EEDB17A5A14F00FAFD44 /* SPMainViewController.m */; };
 		CE7F163317AC3ED400DA8FEF /* SPMJPEGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */; };
 		CE7F163617AC486A00DA8FEF /* SPMoviesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */; };
-		CE8C3B7817B3A8B0003B6540 /* SPMoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8C3B7717B3A8B0003B6540 /* SPMoviesListViewController.m */; };
 		CE8E7B9F17ACF623000B6013 /* SPMJPEGStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */; };
+		CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C6421C517B0E81B007921B1 /* SPMJPEGMovieRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGMovieRecorder.h; path = MJPEGStream/SPMJPEGMovieRecorder.h; sourceTree = "<group>"; };
+		2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGMovieRecorder.m; path = MJPEGStream/SPMJPEGMovieRecorder.m; sourceTree = "<group>"; };
+		2C6421C817B0E8BC007921B1 /* SPMJPEGFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGFrame.h; path = MJPEGStream/SPMJPEGFrame.h; sourceTree = "<group>"; };
+		2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGFrame.m; path = MJPEGStream/SPMJPEGFrame.m; sourceTree = "<group>"; };
+		2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2C6421CD17B0F019007921B1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2C6421CF17B0F18D007921B1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CE69EEAB17A5981900FAFD44 /* SPMJPEGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPMJPEGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE69EEAE17A5981900FAFD44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE69EEB017A5981900FAFD44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,10 +67,10 @@
 		CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGMovie.m; path = MJPEGStream/SPMJPEGMovie.m; sourceTree = "<group>"; };
 		CE7F163417AC486A00DA8FEF /* SPMoviesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMoviesRepository.h; path = MJPEGStream/SPMoviesRepository.h; sourceTree = "<group>"; };
 		CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMoviesRepository.m; path = MJPEGStream/SPMoviesRepository.m; sourceTree = "<group>"; };
-		CE8C3B7617B3A8B0003B6540 /* SPMoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMoviesListViewController.h; sourceTree = "<group>"; };
-		CE8C3B7717B3A8B0003B6540 /* SPMoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMoviesListViewController.m; sourceTree = "<group>"; };
 		CE8E7B9D17ACF623000B6013 /* SPMJPEGStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGStream.h; path = MJPEGStream/SPMJPEGStream.h; sourceTree = "<group>"; };
 		CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGStream.m; path = MJPEGStream/SPMJPEGStream.m; sourceTree = "<group>"; };
+		CEEFC93517B3ACEE00AB4532 /* SPMoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMoviesListViewController.h; sourceTree = "<group>"; };
+		CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMoviesListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C6421D017B0F18D007921B1 /* CoreMedia.framework in Frameworks */,
+				2C6421CE17B0F019007921B1 /* CoreVideo.framework in Frameworks */,
+				2C6421CC17B0EC1B007921B1 /* AVFoundation.framework in Frameworks */,
 				CE69EEAF17A5981900FAFD44 /* UIKit.framework in Frameworks */,
 				CE69EEB117A5981900FAFD44 /* Foundation.framework in Frameworks */,
 				CE69EEB317A5981900FAFD44 /* CoreGraphics.framework in Frameworks */,
@@ -96,6 +111,9 @@
 		CE69EEAD17A5981900FAFD44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C6421CD17B0F019007921B1 /* CoreVideo.framework */,
+				2C6421CF17B0F18D007921B1 /* CoreMedia.framework */,
+				2C6421CB17B0EC1A007921B1 /* AVFoundation.framework */,
 				CE69EEAE17A5981900FAFD44 /* UIKit.framework */,
 				CE69EEB017A5981900FAFD44 /* Foundation.framework */,
 				CE69EEB217A5981900FAFD44 /* CoreGraphics.framework */,
@@ -107,9 +125,9 @@
 		CE69EEB617A5981900FAFD44 /* SPMJPEGPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				CEEFC93517B3ACEE00AB4532 /* SPMoviesListViewController.h */,
+				CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */,
 				CE69EED817A5A0C100FAFD44 /* Storyboard.storyboard */,
-				CE8C3B7617B3A8B0003B6540 /* SPMoviesListViewController.h */,
-				CE8C3B7717B3A8B0003B6540 /* SPMoviesListViewController.m */,
 				CE69EED017A599B000FAFD44 /* Libs */,
 				CE69EEBF17A5981900FAFD44 /* SPAppDelegate.h */,
 				CE69EEC017A5981900FAFD44 /* SPAppDelegate.m */,
@@ -125,6 +143,10 @@
 				CE7F163217AC3ED400DA8FEF /* SPMJPEGMovie.m */,
 				CE7F163417AC486A00DA8FEF /* SPMoviesRepository.h */,
 				CE7F163517AC486A00DA8FEF /* SPMoviesRepository.m */,
+				2C6421C517B0E81B007921B1 /* SPMJPEGMovieRecorder.h */,
+				2C6421C617B0E81B007921B1 /* SPMJPEGMovieRecorder.m */,
+				2C6421C817B0E8BC007921B1 /* SPMJPEGFrame.h */,
+				2C6421C917B0E8BC007921B1 /* SPMJPEGFrame.m */,
 			);
 			path = SPMJPEGPlayer;
 			sourceTree = "<group>";
@@ -236,7 +258,9 @@
 				CE7F163317AC3ED400DA8FEF /* SPMJPEGMovie.m in Sources */,
 				CE7F163617AC486A00DA8FEF /* SPMoviesRepository.m in Sources */,
 				CE8E7B9F17ACF623000B6013 /* SPMJPEGStream.m in Sources */,
-				CE8C3B7817B3A8B0003B6540 /* SPMoviesListViewController.m in Sources */,
+				2C6421C717B0E81B007921B1 /* SPMJPEGMovieRecorder.m in Sources */,
+				2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */,
+				CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

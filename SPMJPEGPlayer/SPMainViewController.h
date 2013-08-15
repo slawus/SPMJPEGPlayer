@@ -11,4 +11,5 @@
 
 @interface SPMainViewController : UIViewController<SPMJPEGStreamDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @end

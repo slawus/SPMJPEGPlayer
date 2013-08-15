@@ -8,10 +8,13 @@
 
 #import "SPMainViewController.h"
 #import "SPMJPEGHttpStream.h"
+#import "SPMJPEGMovieRecorder.h"
 
 @interface SPMainViewController ()
 {
     UIImageView *imageView;
+    bool isRecording;
+    SPMJPEGMovieRecorder *recorder;
 }
 @end
 
@@ -32,7 +35,7 @@
 	// Do any additional setup after loading the view.
     imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     
-    [self.view addSubview:imageView];
+    [self.view insertSubview:imageView belowSubview:self.recordButton];
     
     //load mjpeg stream
     SPMJPEGHttpStream *stream = [[SPMJPEGHttpStream alloc] init];
@@ -40,6 +43,23 @@
     stream.delegate = self;
     
     [stream connect];
+    
+    isRecording = NO;
+}
+- (IBAction)recordButtonPressed:(id)sender
+{
+    if(isRecording)
+    {
+        [recorder finishRecording];
+        recorder = nil;
+    }
+    else
+    {
+        recorder = [[SPMJPEGMovieRecorder alloc] init];
+        recorder.filename = @"blbal22";
+        
+        [recorder beginRecording];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,5 +72,10 @@
 -(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(UIImage *)frame
 {
     imageView.image = frame;
+    
+    if(recorder)
+    {
+        [recorder newImage:frame withDelay:0.1];
+    }
 }
 @end
