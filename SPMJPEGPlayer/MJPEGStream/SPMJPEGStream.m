@@ -10,13 +10,13 @@
 
 @implementation SPMJPEGStream
 
--(void)setFrame:(UIImage *)frame
+-(void)setFrame:(SPMJPEGFrame *)frame
 {
     if(frame)
     {
         _frame = frame;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"newFrame" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newFrame" object:self];
     }
     
     if([self.delegate respondsToSelector:@selector(mjpegStream:didReceiveFrame:)])

@@ -19,6 +19,10 @@ static NSData *_endMarkerData = nil;
 
 
 @implementation SPMJPEGHttpStream
+{
+    NSDate *lastFrameDate;
+}
+
 -(BOOL)isPlaying { return !(_connection == nil); }
 #pragma mark - Initializers
 
@@ -136,7 +140,11 @@ static NSData *_endMarkerData = nil;
                 
                 NSLog(@"Frame size in kb: %f, since begining: %f", imageData.length / 1024.0, movieSize / 1024.0);
                 
-                self.frame = receivedImage;
+                double delay = (!lastFrameDate) ? 0 : [lastFrameDate timeIntervalSinceNow];
+                
+                lastFrameDate = [NSDate date];
+                
+                self.frame = [SPMJPEGFrame frameWithImage:receivedImage timeDelay:delay];
                 
                 if([self.delegate respondsToSelector:@selector(mjpegStream:didReceiveFrame:)])
                 {

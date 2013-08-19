@@ -9,5 +9,12 @@
 #import "SPMJPEGFrame.h"
 
 @implementation SPMJPEGFrame
-
++(SPMJPEGFrame *)frameWithImage:(UIImage *)image timeDelay:(double)delay
+{
+    SPMJPEGFrame *frame = [[SPMJPEGFrame alloc] init];
+    frame->_delay = delay;
+    frame->_image = image;
+    
+    return frame;
+}
 @end

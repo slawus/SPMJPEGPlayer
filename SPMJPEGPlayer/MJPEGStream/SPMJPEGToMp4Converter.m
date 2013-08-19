@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 SP. All rights reserved.
 //
 
-#import "SPMJPEGMovieRecorder.h"
+#import "SPMJPEGToMp4Converter.h"
 
-@implementation SPMJPEGMovieRecorder
+@implementation SPMJPEGToMp4Converter
 {
     AVAssetWriter *videoWriter;
     AVAssetWriterInput *videoWriterInput;
@@ -19,9 +19,16 @@
 
 static CGSize size = {640, 480};
 
--(void)beginRecording
++(id)newMovieWithName:(NSString *)name
 {
-        //NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    SPMJPEGToMp4Converter *converter = [[SPMJPEGToMp4Converter alloc] init];
+    converter.filename = name;
+    
+    return converter;
+}
+
+-(void)begin
+{
          NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
         NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
@@ -124,10 +131,10 @@ static CGSize size = {640, 480};
 
 -(void)newFrame:(SPMJPEGFrame *)frame
 {
-
+    [self newImage:frame.image withDelay:frame.delay];
 }
 
--(void)finishRecording
+-(void)finish
 {
     [videoWriterInput markAsFinished];
     [videoWriter finishWritingWithCompletionHandler:^{
@@ -136,38 +143,6 @@ static CGSize size = {640, 480};
     
     NSLog(@"Write Ended");
 }
-
-/*- (CVPixelBufferRef) pixelBufferFromCGImage:(CGImageRef)image size:(CGSize)size
-{
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey,
-                             [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey,
-                             nil];
-    CVPixelBufferRef pxbuffer = NULL;
-    CVReturn status = CVPixelBufferCreate(kCFAllocatorDefault, size.width,
-                                          size.height, kCVPixelFormatType_32ARGB, (__bridge CFDictionaryRef) options,
-                                          &pxbuffer);
-    NSParameterAssert(status == kCVReturnSuccess && pxbuffer != NULL);
-    
-    CVPixelBufferLockBaseAddress(pxbuffer, 0);
-    void *pxdata = CVPixelBufferGetBaseAddress(pxbuffer);
-    NSParameterAssert(pxdata != NULL);
-    
-    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(pxdata, size.width,
-                                                 size.height, 8, 4*size.width, rgbColorSpace,
-                                                 kCGImageAlphaNoneSkipFirst);
-    NSParameterAssert(context);
-    //CGContextConcatCTM(context, frameTransform);
-    CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image),
-                                           CGImageGetHeight(image)), image);
-    CGColorSpaceRelease(rgbColorSpace);
-    CGContextRelease(context);
-    
-    CVPixelBufferUnlockBaseAddress(pxbuffer, 0);
-    
-    return pxbuffer;
-}*/
 
 - (CVPixelBufferRef) pixelBufferFromCGImage:(CGImageRef)image size:(CGSize)size
 {

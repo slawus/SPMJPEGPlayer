@@ -11,12 +11,12 @@
 #import "SPMJPEGFrame.h"
 #import <CoreVideo/CoreVideo.h>
 
-@interface SPMJPEGMovieRecorder : NSObject
-+(id)recordMovieWithName:(NSString *)name;
--(void)beginRecording;
+@interface SPMJPEGToMp4Converter : NSObject
++(id)newMovieWithName:(NSString *)name;
+-(void)begin;
 -(void)newFrame:(SPMJPEGFrame *)frame;
 -(void)newImage:(UIImage *)image withDelay:(double)delay;
--(void)finishRecording;
+-(void)finish;
 
 @property (nonatomic, strong) NSString *filename;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "SPMoviesListViewController.h"
-#import "SPMoviePlayerViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 @interface SPMoviesListViewController ()
 {
@@ -56,19 +55,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"toMoviePlayerPush"])
-    {
-        SPMoviePlayerViewController *vc = segue.destinationViewController;
-        
-        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        path = [path stringByAppendingPathComponent:sender];
-        //path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        vc.movieUrl = [NSURL fileURLWithPath:path];
-    }
-}
 
 #pragma mark - Table view data source
 

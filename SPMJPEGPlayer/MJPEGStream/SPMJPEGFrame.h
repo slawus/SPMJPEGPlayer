@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface SPMJPEGFrame : NSObject
+@property (nonatomic, strong, readonly) UIImage *image;
+@property (nonatomic, readonly) double delay;
 
++(SPMJPEGFrame *)frameWithImage:(UIImage *)image timeDelay:(double)delay;
 @end

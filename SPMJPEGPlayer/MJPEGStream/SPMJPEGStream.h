@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SPMJPEGFrame.h"
 @protocol SPMJPEGStreamDelegate;
 
 @interface SPMJPEGStream : NSObject
 @property (readonly) BOOL isPlaying;
-@property (nonatomic, strong) UIImage *frame;
+@property (nonatomic, strong) SPMJPEGFrame *frame;
 @property (nonatomic, weak) id<SPMJPEGStreamDelegate> delegate;
 
 -(void)play;
@@ -19,5 +20,5 @@
 @end
 
 @protocol SPMJPEGStreamDelegate <NSObject>
--(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(UIImage *)frame;
+-(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(SPMJPEGFrame *)frame;
 @end

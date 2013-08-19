@@ -8,13 +8,14 @@
 
 #import "SPMainViewController.h"
 #import "SPMJPEGHttpStream.h"
-#import "SPMJPEGMovieRecorder.h"
+#import "SPMJPEGRecorder.h"
 
 @interface SPMainViewController ()
 {
     UIImageView *imageView;
     bool isRecording;
-    SPMJPEGMovieRecorder *recorder;
+    SPMJPEGRecorder *recorder;
+    SPMJPEGHttpStream *stream;
 }
 @end
 
@@ -38,7 +39,7 @@
     [self.view insertSubview:imageView belowSubview:self.recordButton];
     
     //load mjpeg stream
-    SPMJPEGHttpStream *stream = [[SPMJPEGHttpStream alloc] init];
+    stream = [[SPMJPEGHttpStream alloc] init];
     stream.url = [NSURL URLWithString:@"http://192.168.1.103:8080"];
     stream.delegate = self;
     
@@ -55,10 +56,7 @@
     }
     else
     {
-        recorder = [[SPMJPEGMovieRecorder alloc] init];
-        recorder.filename = @"movie.mp4";
-        
-        [recorder beginRecording];
+        recorder = [SPMJPEGRecorder recordMoviewFromStream:stream withName:@"newMoview"];
     }
 }
 
@@ -69,13 +67,8 @@
 }
 
 #pragma mark delegate
--(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(UIImage *)frame
+-(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(SPMJPEGFrame *)frame
 {
-    imageView.image = frame;
-    
-    if(recorder)
-    {
-        [recorder newImage:frame withDelay:0.1];
-    }
+    imageView.image = frame.image;
 }
 @end
