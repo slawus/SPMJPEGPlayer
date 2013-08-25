@@ -30,6 +30,8 @@
 		CE8C013317BCF76A00C48AE8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8C013217BCF76A00C48AE8 /* MediaPlayer.framework */; };
 		CE8C074C17C2B9A900F9A93A /* SPMJPEGRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8C013A17BD2C5300C48AE8 /* SPMJPEGRecorder.m */; };
 		CE8E7B9F17ACF623000B6013 /* SPMJPEGStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */; };
+		CE8FEF7C17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEF7B17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.m */; };
+		CE8FEF7F17CA365000EAAD8D /* SPMJPEGBufferStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEF7E17CA364F00EAAD8D /* SPMJPEGBufferStream.m */; };
 		CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,10 @@
 		CE8C013A17BD2C5300C48AE8 /* SPMJPEGRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGRecorder.m; path = MJPEGStream/SPMJPEGRecorder.m; sourceTree = "<group>"; };
 		CE8E7B9D17ACF623000B6013 /* SPMJPEGStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGStream.h; path = MJPEGStream/SPMJPEGStream.h; sourceTree = "<group>"; };
 		CE8E7B9E17ACF623000B6013 /* SPMJPEGStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGStream.m; path = MJPEGStream/SPMJPEGStream.m; sourceTree = "<group>"; };
+		CE8FEF7A17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGFrameBuffer.h; path = MJPEGStream/SPMJPEGFrameBuffer.h; sourceTree = "<group>"; };
+		CE8FEF7B17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGFrameBuffer.m; path = MJPEGStream/SPMJPEGFrameBuffer.m; sourceTree = "<group>"; };
+		CE8FEF7D17CA364F00EAAD8D /* SPMJPEGBufferStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMJPEGBufferStream.h; path = MJPEGStream/SPMJPEGBufferStream.h; sourceTree = "<group>"; };
+		CE8FEF7E17CA364F00EAAD8D /* SPMJPEGBufferStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMJPEGBufferStream.m; path = MJPEGStream/SPMJPEGBufferStream.m; sourceTree = "<group>"; };
 		CEEFC93517B3ACEE00AB4532 /* SPMoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMoviesListViewController.h; sourceTree = "<group>"; };
 		CEEFC93617B3ACEE00AB4532 /* SPMoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMoviesListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +195,10 @@
 				CE69EED617A599D600FAFD44 /* SPMJPEGHttpStream.m */,
 				CE8C013917BD2C5300C48AE8 /* SPMJPEGRecorder.h */,
 				CE8C013A17BD2C5300C48AE8 /* SPMJPEGRecorder.m */,
+				CE8FEF7A17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.h */,
+				CE8FEF7B17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.m */,
+				CE8FEF7D17CA364F00EAAD8D /* SPMJPEGBufferStream.h */,
+				CE8FEF7E17CA364F00EAAD8D /* SPMJPEGBufferStream.m */,
 			);
 			name = SPMJPEG;
 			sourceTree = "<group>";
@@ -271,6 +281,8 @@
 				2C6421CA17B0E8BD007921B1 /* SPMJPEGFrame.m in Sources */,
 				CEEFC93717B3ACEE00AB4532 /* SPMoviesListViewController.m in Sources */,
 				CE8C074C17C2B9A900F9A93A /* SPMJPEGRecorder.m in Sources */,
+				CE8FEF7C17CA2A9500EAAD8D /* SPMJPEGFrameBuffer.m in Sources */,
+				CE8FEF7F17CA365000EAAD8D /* SPMJPEGBufferStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
