@@ -15,6 +15,8 @@
     AVAssetWriterInputPixelBufferAdaptor *adaptor;
     
     NSDate *lastFrameDate;
+    
+    double videoLength;
 }
 
 static CGSize size = {640, 480};
@@ -29,7 +31,9 @@ static CGSize size = {640, 480};
 
 -(void)begin
 {
-         NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        videoLength = 0;
+    
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
         NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
     
@@ -79,7 +83,7 @@ static CGSize size = {640, 480};
 
 -(void)newImage:(UIImage *)image withDelay:(double)delay
 {
-    
+    videoLength += delay;
     
     //Video encoding
     CVPixelBufferRef buffer = NULL;
@@ -99,7 +103,9 @@ static CGSize size = {640, 480};
         {
             printf("appending %d attemp %d\n", frameCount, j);
             
-            CMTime frameTime = CMTimeMake(frameCount,(int32_t) 10);
+            CMTime frameTime = CMTimeMake(videoLength*10,(int32_t) 10);
+            frameTime = CMTimeMakeWithSeconds(videoLength, 100);
+             NSLog(@"Frame time: %lld/%d", frameTime.value, frameTime.timescale);
             
             append_ok = [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
             

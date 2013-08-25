@@ -140,7 +140,7 @@ static NSData *_endMarkerData = nil;
                 
                 NSLog(@"Frame size in kb: %f, since begining: %f", imageData.length / 1024.0, movieSize / 1024.0);
                 
-                double delay = (!lastFrameDate) ? 0 : [lastFrameDate timeIntervalSinceNow];
+                double delay = (!lastFrameDate) ? 0 : -[lastFrameDate timeIntervalSinceNow];
                 
                 lastFrameDate = [NSDate date];
                 
