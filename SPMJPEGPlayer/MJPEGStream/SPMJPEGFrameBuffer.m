@@ -44,14 +44,14 @@
 {
     _frameCountLimit = frameCountLimit;
     
-    [self adjustBuffer];
+   [self adjustBuffer];
 }
 
 -(void)setDurationLimit:(double)durationLimit
 {
     _durationLimit = durationLimit;
     
-    [self adjustBuffer];
+   [self adjustBuffer];
 }
 
 -(void)adjustBuffer
@@ -73,6 +73,9 @@
 {
     _duration += frame.delay;
     [_frames addObject:frame];
+    
+    if([self.delegate respondsToSelector:@selector(frameBuffer:frameAdded:)])
+        [self.delegate frameBuffer:self frameAdded:frame];
 }
 
 -(void)removeFirstFrame

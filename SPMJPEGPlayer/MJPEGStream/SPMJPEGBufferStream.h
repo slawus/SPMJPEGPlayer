@@ -10,9 +10,10 @@
 #import "SPMJPEGFrameBuffer.h"
 #import "SPMJPEGStream.h"
 
-@interface SPMJPEGBufferStream : SPMJPEGStream
+@interface SPMJPEGBufferStream : SPMJPEGStream<SPMJPEGFrameBufferDelegate>
 
 @property(nonatomic, readonly) SPMJPEGFrameBuffer *buffer;
 
 -(id)initWithBuffer:(SPMJPEGFrameBuffer *)buffer;
+-(void)goToPercent:(double)percentDuration;
 @end

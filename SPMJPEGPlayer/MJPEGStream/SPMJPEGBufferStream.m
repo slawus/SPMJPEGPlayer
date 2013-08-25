@@ -39,10 +39,19 @@
     nextFrame = nil;
 }
 
+-(void)goToPercent:(double)percentDuration
+{
+    NSArray *frames = self.buffer.frames;
+    
+    int index = ([frames count] - 1)*percentDuration;
+    
+    nextFrame = [frames objectAtIndex:index];
+}
+
+
 -(void)changeFrame
 {
-    @synchronized(self)
-    {
+
         NSArray *frames = self.buffer.frames;
         
         int index = [frames indexOfObject:nextFrame];
@@ -50,18 +59,27 @@
             index = -1;
         
         index += 1;
-        
+    
+    NSLog(@"Frame index: %d/%d %d", index, frames.count, self.buffer.frameCount);
+    
         self.frame = nextFrame;
         
         if(index >= [frames count])
         {
-            nextFrame = nil;
-            [self stop];
+            //_buffer.delegate = self;
+            
+            return;
         }
         nextFrame = [frames objectAtIndex:index];
-        
-        [self performSelector:@selector(changeFrame) withObject:nil afterDelay:nextFrame.delay];
-    }
+    
+    
+    [self performSelector:@selector(changeFrame) withObject:nil afterDelay:nextFrame.delay];
 }
 
+
+#pragma mark frameBufferDelegate
+-(void)frameBuffer:(SPMJPEGFrameBuffer *)buffer frameAdded:(SPMJPEGFrame *)frame
+{
+    
+}
 @end

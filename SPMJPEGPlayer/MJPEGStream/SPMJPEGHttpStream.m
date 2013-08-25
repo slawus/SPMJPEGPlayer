@@ -145,11 +145,6 @@ static NSData *_endMarkerData = nil;
                 lastFrameDate = [NSDate date];
                 
                 self.frame = [SPMJPEGFrame frameWithImage:receivedImage timeDelay:delay];
-                
-                if([self.delegate respondsToSelector:@selector(mjpegStream:didReceiveFrame:)])
-                {
-                    [self.delegate mjpegStream:self didReceiveFrame:self.frame];
-                }
             }
         }
     }

@@ -9,6 +9,7 @@
 #import "SPMainViewController.h"
 #import "SPMJPEGHttpStream.h"
 #import "SPMJPEGRecorder.h"
+#import "SPMJPEGBufferStream.h"
 
 @interface SPMainViewController ()
 {
@@ -16,6 +17,8 @@
     bool isRecording;
     SPMJPEGRecorder *recorder;
     SPMJPEGHttpStream *stream;
+    SPMJPEGFrameBuffer *buffer;
+    SPMJPEGBufferStream *bufferStream;
 }
 @end
 
@@ -34,6 +37,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    buffer = [[SPMJPEGFrameBuffer alloc] init];
+    [buffer setFrameCountLimit:1000];
+    
     imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     
     [self.view insertSubview:imageView belowSubview:self.recordButton];
@@ -46,6 +52,18 @@
     [stream connect];
     
     isRecording = NO;
+}
+- (IBAction)sliderValueChange:(UISlider *)sender
+{
+    if(!bufferStream)
+    {
+        bufferStream = [[SPMJPEGBufferStream alloc] initWithBuffer:buffer];
+        bufferStream.delegate = self;
+        [bufferStream play];
+    }
+    
+    [bufferStream goToPercent:sender.value];
+    
 }
 - (IBAction)recordButtonPressed:(id)sender
 {
@@ -67,8 +85,20 @@
 }
 
 #pragma mark delegate
--(void)mjpegStream:(SPMJPEGStream *)stream didReceiveFrame:(SPMJPEGFrame *)frame
+-(void)mjpegStream:(SPMJPEGStream *)astream didReceiveFrame:(SPMJPEGFrame *)frame
 {
-    imageView.image = frame.image;
+    if(bufferStream)
+    {
+        if(astream == bufferStream)
+            imageView.image = frame.image;
+    }
+    else
+    {
+        if(astream == stream)
+            imageView.image = frame.image;
+    }
+    
+    if(astream == stream)
+        [buffer addFrame:frame];
 }
 @end
