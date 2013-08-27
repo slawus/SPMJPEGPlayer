@@ -11,6 +11,8 @@
 @implementation SPMJPEGBufferStream
 {
     SPMJPEGFrame *nextFrame;
+    NSTimer *timer;
+    BOOL isPlaying;
 }
 -(id)initWithBuffer:(SPMJPEGFrameBuffer *)buffer
 {
@@ -19,6 +21,8 @@
     if(self)
     {
         _buffer = buffer;
+        isPlaying = NO;
+        _buffer.delegate = self;
     }
     
     return self;
@@ -30,13 +34,13 @@
     {
         nextFrame = [_buffer.frames objectAtIndex:0];
     }
-    
+     isPlaying = YES;
     [self changeFrame];
 }
 
 -(void)stop
 {
-    nextFrame = nil;
+    isPlaying = NO;
 }
 
 -(void)goToPercent:(double)percentDuration
@@ -66,20 +70,26 @@
         
         if(index >= [frames count])
         {
-            //_buffer.delegate = self;
+            [self stop];
             
             return;
         }
         nextFrame = [frames objectAtIndex:index];
     
+    if(timer)
+    {
+        [timer invalidate];
+    }
     
-    [self performSelector:@selector(changeFrame) withObject:nil afterDelay:nextFrame.delay];
+    timer = [NSTimer scheduledTimerWithTimeInterval:nextFrame.delay target:self selector:@selector(changeFrame) userInfo:nil repeats:NO];
+    //[self performSelector:@selector(changeFrame) withObject:nil afterDelay:nextFrame.delay];
 }
 
 
 #pragma mark frameBufferDelegate
 -(void)frameBuffer:(SPMJPEGFrameBuffer *)buffer frameAdded:(SPMJPEGFrame *)frame
 {
-    
+    if(!isPlaying)
+        [self play];
 }
 @end

@@ -46,7 +46,7 @@
     
     //load mjpeg stream
     stream = [[SPMJPEGHttpStream alloc] init];
-    stream.url = [NSURL URLWithString:@"http://192.168.1.103:8080"];
+    stream.url = [NSURL URLWithString:@"http://192.168.0.103:8080"];
     stream.delegate = self;
     
     [stream connect];
