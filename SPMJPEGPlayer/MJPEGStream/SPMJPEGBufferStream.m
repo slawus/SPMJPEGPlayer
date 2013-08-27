@@ -41,6 +41,8 @@
 -(void)stop
 {
     isPlaying = NO;
+    [timer invalidate];
+    timer = nil;
 }
 
 -(void)goToPercent:(double)percentDuration
